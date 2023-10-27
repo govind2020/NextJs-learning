@@ -1,30 +1,34 @@
-'use client'
+import React from "react";
 
-import React, {useEffect, useState} from 'react'
 
-const page = () => {
+async function FetchData (){
+  const Data =  await fetch('https://dummyjson.com/products');
+  const productData = await Data.json()
+  return productData.products
+}
 
-    const [productData, setProductData]= useState([])
 
-    useEffect(async()=>{
-        const data = await fetch("https://dummyjson.com/products");
-        const fetchData = await data.json()
-        console.log('fetchData', fetchData)
-        setProductData(fetchData.products)
-    },[])
-
+async function ProductListing () {
+  let allProductData = await FetchData()
+  console.log("allProductData", allProductData)
   return (
     <div>
-        <h1>Product List</h1>
-        {
-            productData.map((productItem)=>{
-                return(
-                    <h5>Product Name:- {productItem.title} , Price:- {productItem.price}</h5>
-                )
-            })
-        }
+      <h1>This is The Server Side Rendering!</h1>
+      {
+        allProductData.map((productItem)=>{
+          return (
+          <>
+           {console.log("allProductData", productItem)}
+            <h4>This is Product Name:- {productItem.title}</h4>
+            <h4>This is Product Brand:- {productItem.brand}</h4>
+            <h4>This is Product Description:- {productItem.description}</h4>
+            <br></br>
+          </>
+          )
+        })
+      }
     </div>
   )
 }
 
-export default page
+export default ProductListing;
