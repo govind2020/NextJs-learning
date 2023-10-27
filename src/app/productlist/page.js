@@ -1,5 +1,5 @@
 import React from "react";
-
+import ProductButton from "./productButton";
 
 async function FetchData (){
   const Data =  await fetch('https://dummyjson.com/products');
@@ -20,6 +20,7 @@ async function ProductListing () {
             <h4>This is Product Name:- {productItem.title}</h4>
             <h4>This is Product Brand:- {productItem.brand}</h4>
             <h4>This is Product Description:- {productItem.description}</h4>
+            <ProductButton discountPercentage={productItem.discountPercentage} />
             <br></br>
           </>
           )
