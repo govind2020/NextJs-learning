@@ -1,5 +1,7 @@
 import React from "react";
 import ProductButton from "./productButton";
+import custom from '../custom.module.css' // created custom class and import here
+import outside from '@/style/outside.module.css'
 
 async function FetchData (){
   const Data =  await fetch('https://dummyjson.com/products');
@@ -17,10 +19,10 @@ async function ProductListing () {
         allProductData.map((productItem)=>{
           return (
           <>
-            <h4>This is Product Name:- {productItem.title}</h4>
-            <h4>This is Product Brand:- {productItem.brand}</h4>
-            <h4>This is Product Description:- {productItem.description}</h4>
-            <ProductButton discountPercentage={productItem.discountPercentage} />
+            <h4 className={custom.main} >This is Product Name:- {productItem.title}</h4>
+            <p className={outside.main}>This is Product Brand:- {productItem.brand}</p>
+            <p className="main">This is Product Description:- {productItem.description}</p>
+            <ProductButton  discountPercentage={productItem.discountPercentage} />
             <br></br>
           </>
           )
