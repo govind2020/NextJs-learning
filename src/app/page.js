@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 function Home() {
   return (
     <>
-    <h1>Generation Meta Data</h1>
+    <h1>Learning Loader Integration</h1>
     </>
   )
 }
