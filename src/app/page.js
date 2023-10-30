@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 function Home() {
   return (
     <>
-    <h1>Static Side Generation </h1>
+    <h1>Re-direct</h1>
     </>
   )
 }
