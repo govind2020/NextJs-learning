@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import DeleteUser from "../util/DeleteUser";
 async function getUsers(){
     let data = await fetch('http://localhost:3000/api/users');
     data = await data.json();
@@ -13,9 +13,16 @@ export default async function Page(){
             {
                 userData.map((item)=>{
                     return(
-                        <div>
-                            <div>UserId:- {item.id}</div>
-                            <Link href={`users/${item.id}`} >Name:- {item.name}</Link>
+                        <div className="user-items">
+                            <span>
+                                <Link href={`users/${item.id}`} >Name:- {item.name}</Link>
+                            </span>
+                            <span >
+                                <Link href={`users/${item.id}/update`} >Edit</Link>
+                            </span>
+                            <span >
+                                {/* <DeleteUser id={item.id}/> */}
+                            </span> 
                          </div>   
                     )
                 })

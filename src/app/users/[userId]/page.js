@@ -1,4 +1,3 @@
-
 async function getUsers(id){
     let data = await fetch(`http://localhost:3000/api/users/${id}`);
     data = await data.json();
@@ -6,7 +5,6 @@ async function getUsers(id){
 }
 
 export default async function  Page({params}){
-    // console.log(params)
     const userData = await getUsers(params.userId)
     return(
         <div>
@@ -17,5 +15,3 @@ export default async function  Page({params}){
         </div>
     )
 }
-
-// export default Page;
